@@ -1,0 +1,59 @@
+.contacts
+  padding: 30px 0
+  &__inner
+    display: grid
+    grid-template-columns: .35fr .65fr
+    gap: 30px
+    margin-top: 30px
+    width: 100%
+  &__desc-item
+    padding-left: 30px
+    &:not(:last-child)
+      margin-bottom: 20px
+  &__subtitle
+    margin-bottom: 10px
+    display: flex
+    align-items: center
+    margin-left: -25px
+    & img
+      width: 20px
+      height: 20px
+      margin-right: 5px
+  & ul
+    & li
+      list-style: none
+      &:not(:last-child)
+        margin-bottom: 8px
+@media screen and ( max-width: 1000px )
+  .contacts
+    &__inner
+      grid-template-columns: 300px 1fr
+@media screen and ( max-width: 768px )
+  .contacts
+    &__inner
+      grid-template-columns: 100%
+    &__map
+      iframe
+        height: 300px
+    &__description
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-template-areas: 'address date''phone date''email date'
+      column-gap: 30px
+    &__desc-item
+      &:nth-child(1)
+        grid-area: address
+      &:nth-child(2)
+        grid-area: phone
+      &:nth-child(3)
+        grid-area: email
+      &:nth-child(4)
+        grid-area: date
+@media screen and ( max-width: 580px )
+  .contacts
+    &__description
+      grid-template-columns: 100%
+      grid-template-areas: 'address''phone''email''date'
+    &__map
+      iframe
+        height: 250px

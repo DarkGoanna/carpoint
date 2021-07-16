@@ -1,0 +1,78 @@
+.banner
+  height: 650px
+  & .swiper-slide
+    & .container
+      height: 100%
+      display: flex
+      align-items: center
+  &__description
+    max-width: 500px
+    width: 100%
+    padding: 50px 30px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    color: $light
+    background: rgba($dark, 0.7)
+    border-radius: 8px
+    margin-left: 10%
+  &__text
+    margin-top: 30px
+  &__btn
+    margin-top: 30px
+  & .swiper-pagination-bullet
+    background: $light
+    border: 1px solid $main
+    opacity: 1
+    &-active
+      background: $main
+  & .swiper-button-next,
+  & .swiper-button-prev
+    top: 50%
+    transform: translateY(-50%)
+    z-index: 2
+    width: 60px
+    height: 60px
+    background: $light
+    border-radius: 50%
+    &::after
+      content: ''
+      width: 100%
+      height: 100%
+      border-radius: 50%
+      background-image: url(../img/slider-arrow.svg)
+      background-size: 50%
+      background-position: center
+      background-repeat: no-repeat
+  & .swiper-button-next
+    right: 30px
+  & .swiper-button-prev
+    left: 30px
+    &::after
+      transform: rotate(180deg)
+@media screen and ( max-width: 1000px )
+  .banner
+    & .swiper-button-next,
+    & .swiper-button-prev
+      width: 40px
+      height: 40px
+    & .swiper-button-next
+      right: 10px
+    & .swiper-button-prev
+      left: 10px
+@media screen and ( max-width: 768px )
+  .banner
+    height: 500px
+    &__description
+      margin: auto
+      max-width: 420px
+@media screen and ( max-width: 580px )
+  .banner
+    height: auto
+    & .swiper-slide
+      padding: 50px 0
+    &__description
+      padding: 30px 20px
+    & .swiper-button-next,
+    & .swiper-button-prev
+      display: none

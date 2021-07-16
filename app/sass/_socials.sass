@@ -1,0 +1,21 @@
+.socials
+  display: flex
+  align-items: center
+  justify-content: center
+  &__item
+    & a
+      display: flex
+      align-items: center
+      justify-content: center
+    & img
+      width: 25px
+      height: 25px
+      position: relative
+      transform: translateY(0)
+      transition: .2s
+    &:not(:last-child)
+      margin-right: 5px
+    &:hover
+      & img
+        transform: translateY(-5px)
+        transition: .2s

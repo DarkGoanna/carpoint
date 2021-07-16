@@ -1,0 +1,29 @@
+.reviews-youtube
+  padding: 30px 0
+  max-width: 900px
+  margin: auto
+  width: 100%
+  & .container
+    max-width: 100%
+  &__slider
+    margin-top: 30px
+    & .swiper-slide
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 10px
+    & .video-card
+      max-width: 300px
+      &__title
+        display: none
+@media screen and ( max-width: 1200px )
+  .reviews-youtube
+    max-width: calc(1000px - 30px - 250px)
+@media screen and ( max-width: 1000px )
+  .reviews-youtube
+    max-width: 100%
+@media screen and ( max-width: 580px )
+  .reviews-youtube
+    &__slider
+      & .video-card
+        max-width: 100%

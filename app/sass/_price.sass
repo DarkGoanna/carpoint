@@ -1,0 +1,115 @@
+.price
+  &__card-wrapper
+    margin-top: 30px
+    display: grid
+    border-radius: 8px
+    -webkit-box-shadow: 0px 0px 17px -2px rgba($dark, 0.4)
+    -moz-box-shadow: 0px 0px 17px -2px rgba($dark, 0.4)
+    box-shadow: 0px 0px 17px -2px rgba($dark, 0.4)
+  &__tab-wrapper
+    border-top-left-radius: 8px
+    border-top-right-radius: 8px
+    overflow: hidden
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr))
+    gap: 1px
+  &__tab
+    display: flex
+    align-items: center
+    justify-content: center
+    text-align: center
+    padding: 15px
+    color: $light
+    background: $main
+    transition: .2s
+    border: none
+    cursor: pointer
+    font-weight: 400
+    font-size: 18px
+    &:first-child
+      border-top-left-radius: 8px
+    &:last-child
+      border-top-right-radius: 8px
+    &.active
+      background: $second
+      color: $dark
+  &__card-inner
+    position: relative
+  &__description
+    margin-top: 30px
+    & > p
+      &:not(:first-child)
+        margin-top: 15px
+.price-card
+  padding: 30px 20px
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: max-content
+  opacity: 0
+  visibility: hidden
+  transition: .2s
+  border-bottom-left-radius: 8px
+  border-bottom-right-radius: 8px
+  &.active
+    opacity: 1
+    visibility: visible
+    transition: .2s
+    position: relative
+  &__cost
+    text-align: center
+  &__table
+    margin-top: 30px
+    border: .5px solid $dark
+    & li
+      display: grid
+      grid-template-columns: 1fr 100px
+      &:not(:last-child)
+        border-bottom: .5px solid $dark
+      & span
+        padding: 10px
+        &:first-child
+          text-align: left
+        &:last-child
+          text-align: center
+          font-weight: 700
+          border-left: .5px solid $dark
+  & .list
+    margin-top: 30px
+    & li
+      display: flex
+      flex-direction: column
+      &:not(:last-child)
+        margin-bottom: 15px
+        & strong
+          margin-bottom: 5px
+  &__btn
+    margin: 30px auto 0
+@media screen and ( max-width: 768px )
+  .price
+    &__tab-wrapper
+      grid-template-columns: 1fr 1fr
+    &__tab
+      font-size: 16px
+      &:nth-child(2)
+        border-top-right-radius: 8px
+      &:last-child
+        border-radius: 0
+@media screen and ( max-width: 580px )
+  .price
+    &__tab-wrapper
+      grid-template-columns: 100%
+    &__tab
+      padding: 10px
+      &:first-child
+        border-top-right-radius: 8px
+      &:nth-child(2)
+        border-radius: 0
+@media screen and ( max-width: 480px )
+  .price
+    &-card__table
+      & li
+        grid-template-columns: 1fr max-content
+  .price-card
+    padding: 20px 10px

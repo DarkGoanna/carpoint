@@ -1,0 +1,8 @@
+dist/
+node_modules/
+vscode/
+LICENSE
+.prettierrc
+*.json
+adminka.txt
+*.mp4

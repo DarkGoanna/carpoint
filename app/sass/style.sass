@@ -1,0 +1,53 @@
+@import 'var'
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+  outline: none
+  line-height: 1.2
+html
+  overflow-x: hidden
+body
+  font-family: 'Montserrat', sans-serif
+  font-weight: 400
+  font-size: 18px
+  background-color: $light
+  color: $dark
+  overflow-x: hidden
+  &::-webkit-scrollbar
+    width: 5px
+    background: $light
+  &::-webkit-scrollbar-track
+    box-shadow: inset 0 0 6px rgba($dark, 0.3)
+
+  &::-webkit-scrollbar-thumb
+    background: $second
+a
+  text-decoration: none
+  color: inherit
+
+input, textarea
+  outline: none
+  font-family: 'Montserrat', sans-serif
+
+@import 'header'
+@import 'socials'
+@import 'banner'
+@import 'steps'
+@import 'popup'
+@import 'content-wrapper'
+@import 'reviews-youtube'
+@import 'price'
+@import 'callback'
+@import 'seo'
+@import 'models'
+@import 'footer'
+@import 'contacts'
+@import 'video'
+@import 'reviews'
+@import 'pagination'
+
+@media screen and ( max-width: 580px )
+  body
+    font-size: 16px

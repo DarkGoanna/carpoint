@@ -1,0 +1,226 @@
+.header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 100
+  background: $light
+  transition: .3s
+  &__row_1
+    & .container
+      padding: 25px 15px
+      display: grid
+      grid-template-columns: 200px 1fr 200px max-content
+      grid-template-areas: 'logo marquiz phone socials'
+      column-gap: 50px
+      align-items: center
+      justify-content: center
+  &__row_2
+    -webkit-box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3), 0px -5px 9px -5px rgba(41, 41, 41, .3)
+    -moz-box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3), 0px -5px 9px -5px rgba(41, 41, 41, .3)
+    box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3), 0px -5px 9px -5px rgba(41, 41, 41, .3)
+  &__logo
+    grid-area: logo
+    & img
+      width: 100%
+  &__marquiz
+    grid-area: marquiz
+  &__phone
+    grid-area: phone
+    & a
+      display: flex
+      align-items: center
+      justify-content: center
+      transition: .2s
+      color: $main
+      font-weight: 700
+    & img
+      width: 25px
+      height: 25px
+      margin-right: 4px
+      transition: .2s
+      transform: translateY(0)
+    &:hover
+      & img
+        transform: translateY(-5px)
+        transition: .2s
+  &__socials
+    grid-area: socials
+  &__menu
+    grid-area: menu
+    padding: 10px 0
+  &__burger
+    grid-area: burger
+    display: none
+  & .menu
+    &__socials
+      display: none
+    &__list
+      display: flex
+      align-items: center
+      justify-content: center
+      & li
+        list-style: none
+        position: relative
+        padding: 15px 30px
+        text-align: center
+        &:first-child
+          padding-left: 0
+        &:last-child
+          padding-right: 0
+        &:not(:last-child)
+          &::after
+            content: ''
+            height: 20px
+            width: 1px
+            background: rgba($main, .3)
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+        & a
+          font-weight: 700
+@media screen and ( max-width: 1200px )
+  .header
+    & .menu
+      &__list
+        & li
+          padding: 15px
+@media screen and ( max-width: 1000px )
+  .header
+    height: 80px
+    &__row_1
+      height: 100%
+      -webkit-box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3)
+      -moz-box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3)
+      box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3)
+      & .container
+        height: 100%
+        padding: 15px
+        grid-template-columns: 150px 1fr max-content max-content 30px
+        grid-template-areas: 'logo marquiz phone socials burger'
+        column-gap: 20px
+    &__row_2
+      box-shadow: none
+    &__burger
+      border: none
+      border-radius: 0
+      width: 30px
+      height: 20px
+      margin: 0
+      padding: 0
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      background: transparent
+      cursor: pointer
+      position: relative
+      z-index: 102
+      & span
+        width: 100%
+        height: 2px
+        background: $main
+        transition: .2s
+      &.open
+        position: relative
+        & span
+          background: $light
+          &:nth-child(1),
+          &:nth-child(3)
+            position: absolute
+            top: 50%
+            left: 50%
+            transition: .2s
+          &:nth-child(1)
+            transform: translate(-50%, -50%) rotate(45deg)
+          &:nth-child(2)
+            opacity: 0
+            visibility: hidden
+          &:nth-child(3)
+            transform: translate(-50%, -50%) rotate(-45deg)
+    & .menu
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 100vh
+      background: $main
+      opacity: 0
+      visibility: hidden
+      transition: .2s
+      z-index: 100
+      &__socials
+        display: block
+        margin-top: 15px
+      &.open
+        opacity: 1
+        visibility: visible
+        transition: .2s
+        padding-top: 25%
+      &__list
+        flex-direction: column
+        & li
+          & a
+            font-size: 36px
+            font-weight: 700
+            text-transform: uppercase
+            color: $light
+          &::after
+            content: none
+          &::before
+            content: ''
+            width: 100%
+            height: 2px
+            background: $light
+            position: absolute
+            bottom: 0
+            left: -100px
+            opacity: 0
+            visibility: hidden
+            transition: .2s
+          &:hover
+            &::before
+              left: 0
+              opacity: 1
+              visibility: visible
+              transition: .2s
+@media screen and ( max-width: 768px )
+  .header
+    &__phone
+      margin-right: -15px
+      & a
+        & span
+          display: none
+        & svg
+          transform: translateY(0)
+          transition: .2s
+      &:hover
+        & svg
+          transform: translateY(-5px)
+          transition: .2s
+@media screen and ( max-width: 580px )
+  .header
+    height: 60px
+    &__row_1
+      & .container
+        height: 100%
+        grid-template-columns: 120px 1fr 30px
+        grid-template-areas: 'logo phone burger'
+        column-gap: 10px
+    &__phone
+      justify-self: end
+      margin-right: 0
+      & a
+        & svg
+          margin: 0
+    &__socials
+      display: none
+      grid-area: auto
+    &__marquiz
+      grid-area: auto
+    & .menu
+      &__list
+        & li
+          padding: 8px
+          & a
+            font-size: 24px

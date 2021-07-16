@@ -1,0 +1,134 @@
+.steps
+  margin-top: 50px
+  &__inner
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    gap: 50px
+  &__card
+    display: flex
+    align-items: center
+    justify-content: center
+    transition: .2s
+    padding: 30px 20px
+    cursor: pointer
+    position: relative
+    overflow: hidden
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    & *
+      position: relative
+      z-index: 2
+    &::after
+      content: ''
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+      z-index: -1
+      background: $light
+    &::before
+      content: ''
+      width: 100%
+      height: 100%
+      position: absolute
+      top: calc( 100% - 10px )
+      left: 0
+      z-index: 0
+      background: $main
+      transition: .2s
+    &:hover
+      &::before
+        top: 0
+        transition: .2s
+      & .steps__title
+        color: $light
+        transition: .2s
+      & .steps__image
+        & img
+          transition: .2s
+          &:first-child
+            opacity: 0
+            visibility: hidden
+          &:last-child
+            opacity: 1
+            visibility: visible
+  &__image
+    position: relative
+    width: 60px
+    height: 60px
+    & img
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+      transition: .2s
+      &:first-child
+        opacity: 1
+        visibility: visible
+      &:last-child
+        opacity: 0
+        visibility: hidden
+  &__title
+    text-align: center
+    margin-top: 10px
+    transition: .2s
+  &__popup
+    & .popup
+      &__inner
+        max-height: 80vh
+        max-width: 900px
+      &__steps-list
+        height: 100%
+        max-height: calc(80vh - 100px)
+        margin-top: 30px
+        overflow-y: scroll
+        & li
+          list-style: none
+          display: grid
+          grid-template-columns: 100px 1fr
+          align-items: center
+          gap: 20px
+          &:not(:last-child)
+            margin-bottom: 15px
+          & img
+            width: 100%
+            object-fit: contain
+        &::-webkit-scrollbar
+          width: 0
+        &::-webkit-scrollbar-thumb
+          background: transparent
+@media screen and ( max-width: 1200px )
+  .steps
+    &__inner
+      gap: 30px
+    &__card
+      padding: 30px 15px
+@media screen and ( max-width: 1000px )
+  .steps
+    &__inner
+      grid-template-columns: repeat(2, 1fr)
+      gap: 50px
+    &__popup
+      & .popup
+        &__inner
+          max-width: 90%
+@media screen and ( max-width: 580px )
+  .steps
+    &__inner
+      grid-template-columns: 100%
+      gap: 30px
+    &__card
+      max-width: 100%
+      width: 100%
+      margin: auto
+    &__popup
+      & .popup
+        &__inner
+        &__steps-list
+          margin-top: 15px
+          & li
+            grid-template-columns: 100%
+            & img
+              max-width: 150px
+              margin: auto

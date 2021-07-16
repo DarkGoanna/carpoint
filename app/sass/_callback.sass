@@ -1,0 +1,27 @@
+.callback
+  color: $light
+  margin-top: 30px
+  &__inner
+    display: grid
+    grid-template-columns: .4fr .6fr
+    padding: 30px
+    gap: 30px
+    align-items: center
+  &__description
+    padding: 30px 15px
+    border-radius: 8px
+    background: rgba($dark, .5)
+    & p
+      &:not(:first-child)
+        margin-top: 15px
+@media screen and ( max-width: 580px )
+  .callback
+    &__inner
+      grid-template-columns: 100%
+    &__btn
+      grid-row: 2
+      margin: auto
+@media screen and ( max-width: 480px )
+  .callback
+    &__inner
+      padding: 30px 0
