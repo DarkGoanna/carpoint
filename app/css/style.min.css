@@ -198,22 +198,29 @@ textarea {
 }
 
 .header__row_1 .container {
-  padding: 25px 15px;
+  padding: 5px 15px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 200px 50px 1fr 50px 200px 50px -webkit-max-content;
-  -ms-grid-columns: 200px 50px 1fr 50px 200px 50px max-content;
-  grid-template-columns: 200px 1fr 200px -webkit-max-content;
-  grid-template-columns: 200px 1fr 200px max-content;
+  -ms-grid-columns: 150px 50px 1fr 50px 200px 50px -webkit-max-content;
+  -ms-grid-columns: 150px 50px 1fr 50px 200px 50px max-content;
+  grid-template-columns: 150px 1fr 200px -webkit-max-content;
+  grid-template-columns: 150px 1fr 200px max-content;
       grid-template-areas: 'logo marquiz phone socials';
   -moz-column-gap: 50px;
        column-gap: 50px;
   align-items: center;
   justify-content: center;
+  height: 65px;
 }
 
 .header__row_2 {
   box-shadow: 0px 5px 9px -5px rgba(41,41,41,0.3),0px -5px 9px -5px rgba(41,41,41,0.3);
+  height: 65px;
+}
+
+.header__row_2 .container {
+  padding: 5px 15px;
+  height: 100%;
 }
 
 .header__logo {
@@ -243,7 +250,7 @@ textarea {
   align-items: center;
   justify-content: center;
   transition: .2s;
-  color: #1973E7;
+  color: #000;
   font-weight: 700;
 }
 
@@ -268,7 +275,11 @@ textarea {
 
 .header__menu {
   grid-area: menu;
-  padding: 10px 0;
+  height: 100%;
+}
+
+.header__menu .menu__list {
+  height: 100%;
 }
 
 .header__burger {
@@ -289,16 +300,7 @@ textarea {
 .header .menu__list li {
   list-style: none;
   position: relative;
-  padding: 15px 30px;
   text-align: center;
-}
-
-.header .menu__list li:first-child {
-  padding-left: 0;
-}
-
-.header .menu__list li:last-child {
-  padding-right: 0;
 }
 
 .header .menu__list li:not(:last-child)::after {
@@ -308,11 +310,12 @@ textarea {
   background: rgba(25,115,231,0.3);
   position: absolute;
   top: 50%;
-  right: 0;
+  right: var(--empty);
   transform: translateY(-50%);
 }
 
 .header .menu__list li a {
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -322,6 +325,28 @@ textarea {
   justify-content: center;
 }
 
+.socials__item {
+  border-radius: 50%;
+  background: tomato;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.socials__item:nth-child(1) {
+  background: #7360f2;
+}
+
+.socials__item:nth-child(2) {
+  background: #0088cc;
+}
+
+.socials__item:nth-child(4) {
+  background: #1973E7;
+}
+
 .socials__item a {
   display: flex;
   align-items: center;
@@ -329,8 +354,8 @@ textarea {
 }
 
 .socials__item img {
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
   position: relative;
   transform: translateY(0);
   transition: .2s;
@@ -1379,10 +1404,6 @@ textarea {
 }
 
 @media screen and (max-width: 1200px) {
-  .header .menu__list li {
-    padding: 15px;
-  }
-
   .steps__inner {
     gap: 30px;
   }

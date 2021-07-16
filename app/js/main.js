@@ -3,6 +3,27 @@ const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.menu');
 const html = document.querySelector('html');
 
+// пространство между элементами меню для псевдоэлемента ::after
+function calcEmptySpace() {
+    const wrapper = document.querySelector('.header__menu');
+    const items = wrapper.querySelectorAll('li');
+    let itemsTakeSpace = 0;
+    
+    items.forEach(li => {
+        itemsTakeSpace += li.offsetWidth;
+    })
+    const emptySpace = wrapper.offsetWidth - itemsTakeSpace;
+    const emptyPart = (emptySpace / items.length) / 2;
+
+    items.forEach(li => {
+        li.style.setProperty('--empty', `-${emptyPart}px`);
+    })
+}
+
+// пересчитываем растояние
+window.addEventListener('load', calcEmptySpace);
+window.addEventListener('resize', calcEmptySpace);
+
 burger.addEventListener('click', () => {
     burger.classList.toggle('open');
     menu.classList.toggle('open');

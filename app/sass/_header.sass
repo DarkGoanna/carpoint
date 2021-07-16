@@ -8,17 +8,22 @@
   transition: .3s
   &__row_1
     & .container
-      padding: 25px 15px
+      padding: 5px 15px
       display: grid
-      grid-template-columns: 200px 1fr 200px max-content
+      grid-template-columns: 150px 1fr 200px max-content
       grid-template-areas: 'logo marquiz phone socials'
       column-gap: 50px
       align-items: center
       justify-content: center
+      height: 65px
   &__row_2
     -webkit-box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3), 0px -5px 9px -5px rgba(41, 41, 41, .3)
     -moz-box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3), 0px -5px 9px -5px rgba(41, 41, 41, .3)
     box-shadow: 0px 5px 9px -5px rgba(41, 41, 41, .3), 0px -5px 9px -5px rgba(41, 41, 41, .3)
+    height: 65px
+    & .container
+      padding: 5px 15px
+      height: 100%
   &__logo
     grid-area: logo
     & img
@@ -32,7 +37,7 @@
       align-items: center
       justify-content: center
       transition: .2s
-      color: $main
+      color: $dark
       font-weight: 700
     & img
       width: 25px
@@ -48,7 +53,10 @@
     grid-area: socials
   &__menu
     grid-area: menu
-    padding: 10px 0
+    height: 100%
+    & .menu
+      &__list
+        height: 100%
   &__burger
     grid-area: burger
     display: none
@@ -62,12 +70,7 @@
       & li
         list-style: none
         position: relative
-        padding: 15px 30px
         text-align: center
-        &:first-child
-          padding-left: 0
-        &:last-child
-          padding-right: 0
         &:not(:last-child)
           &::after
             content: ''
@@ -76,16 +79,11 @@
             background: rgba($main, .3)
             position: absolute
             top: 50%
-            right: 0
+            right: var(--empty)
             transform: translateY(-50%)
         & a
+          font-size: 16px
           font-weight: 700
-@media screen and ( max-width: 1200px )
-  .header
-    & .menu
-      &__list
-        & li
-          padding: 15px
 @media screen and ( max-width: 1000px )
   .header
     height: 80px
