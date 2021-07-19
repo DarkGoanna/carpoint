@@ -1452,10 +1452,6 @@ textarea {
 }
 
 @media screen and (max-width: 1000px) {
-  .header {
-    height: 80px;
-  }
-
   .header__row_1 {
     height: 100%;
     box-shadow: 0px 5px 9px -5px rgba(41,41,41,0.3);
@@ -1469,12 +1465,21 @@ textarea {
     grid-template-columns: 150px 1fr -webkit-max-content -webkit-max-content 30px;
     grid-template-columns: 150px 1fr max-content max-content 30px;
         grid-template-areas: 'logo marquiz phone socials burger';
-    -moz-column-gap: 20px;
-         column-gap: 20px;
+    gap: 20px;
   }
 
   .header__row_2 {
-    box-shadow: none;
+    background: #fff;
+    height: auto;
+    position: absolute;
+    width: 100%;
+    bottom: 100%;
+    transition: .2s;
+  }
+
+  .header__row_2.open {
+    position: relative;
+    bottom: auto;
   }
 
   .header__burger {
@@ -1490,7 +1495,6 @@ textarea {
     background: transparent;
     cursor: pointer;
     position: relative;
-    z-index: 102;
   }
 
   .header__burger span {
@@ -1502,10 +1506,6 @@ textarea {
 
   .header__burger.open {
     position: relative;
-  }
-
-  .header__burger.open span {
-    background: #fff;
   }
 
   .header__burger.open span:nth-child(1),
@@ -1530,62 +1530,43 @@ textarea {
   }
 
   .header .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: #1973E7;
     opacity: 0;
     visibility: hidden;
     transition: .2s;
-    z-index: 100;
-  }
-
-  .header .menu__socials {
-    display: block;
-    margin-top: 15px;
   }
 
   .header .menu.open {
     opacity: 1;
     visibility: visible;
     transition: .2s;
-    padding-top: 25%;
   }
 
   .header .menu__list {
     flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .menu__list li {
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
   }
 
   .header .menu__list li a {
-    font-size: 36px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
-  .header .menu__list li::after {
-    content: none;
-  }
-
-  .header .menu__list li::before {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #fff;
-    position: absolute;
-    bottom: 0;
-    left: -100px;
-    opacity: 0;
-    visibility: hidden;
+    color: #000;
     transition: .2s;
   }
 
-  .header .menu__list li:hover::before {
-    left: 0;
-    opacity: 1;
-    visibility: visible;
+  .header .menu__list li:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .header .menu__list li:not(:last-child)::after {
+    content: none;
+  }
+
+  .header .menu__list li:hover a {
+    color: #1973E7;
     transition: .2s;
   }
 
@@ -1703,12 +1684,16 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
-  .header__phone {
-    margin-right: -15px;
+  .header__row_1 .container {
+    -ms-grid-columns: 150px 20px 1fr 20px 1fr;
+    grid-template-columns: 150px 1fr 1fr;
+    -ms-grid-rows: auto 10px auto;
+        grid-template-areas: "logo marquiz phone" "burger marquiz socials";
+    gap: 10px 20px;
   }
 
-  .header__phone a span {
-    display: none;
+  .header__phone a {
+    justify-content: flex-end;
   }
 
   .header__phone a svg {
@@ -1719,6 +1704,10 @@ textarea {
   .header__phone:hover svg {
     transform: translateY(-5px);
     transition: .2s;
+  }
+
+  .header__socials .socials {
+    justify-content: flex-end;
   }
 
   .banner {
@@ -1833,9 +1822,30 @@ textarea {
   .reviews__tab:last-child {
     border-radius: 0;
   }
+  .header__logo {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .header__marquiz {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 3;
+  }
+  .header__phone {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+  }
 
   .contacts__description > .header__phone {
     -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+  .header__socials {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+  }
+  .header__burger {
+    -ms-grid-row: 3;
     -ms-grid-column: 1;
   }
 }
@@ -1853,6 +1863,10 @@ textarea {
   .contacts__desc-item:nth-child(1) {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
+  }
+  .contacts__desc-item:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
   }
 
   .contacts__description > .contacts__desc-item:nth-child(2) {
@@ -1873,60 +1887,19 @@ textarea {
 }
 
 @media screen and (max-width: 580px) {
-  .header {
-    height: 60px;
-  }
-
   .header__row_1 .container {
-    height: 100%;
-    -ms-grid-columns: 120px 10px 1fr 10px 30px;
-    grid-template-columns: 120px 1fr 30px;
-        grid-template-areas: 'logo phone burger';
-    -moz-column-gap: 10px;
-         column-gap: 10px;
-  }
-
-  .header__phone {
-    -ms-grid-column-align: end;
-        justify-self: end;
-    margin-right: 0;
-  }
-
-  .header__phone a svg {
-    margin: 0;
-  }
-
-  .header__socials {
-    display: none;
-    grid-area: auto;
+    -ms-grid-columns: 120px 20px 1fr;
+    grid-template-columns: 120px 1fr;
+    -ms-grid-rows: auto 10px auto;
+        grid-template-areas: "logo phone" "burger socials";
+    gap: 10px 20px;
   }
 
   .header__marquiz {
     grid-area: auto;
   }
 
-  .header .menu__list li {
-    padding: 8px;
-  }
-
-  .header .menu__list li a {
-    font-size: 24px;
-  }
-
   .banner {
-    height: auto;
-  }
-
-  .banner .swiper-slide {
-    padding: 50px 0;
-  }
-
-  .banner__description {
-    padding: 30px 20px;
-  }
-
-  .banner .swiper-button-next,
-  .banner .swiper-button-prev {
     display: none;
   }
 
@@ -2047,12 +2020,10 @@ textarea {
   body {
     font-size: 16px;
   }
-
   .header__logo {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
   }
-
   .header__phone {
     -ms-grid-row: 1;
     -ms-grid-column: 3;
@@ -2062,17 +2033,19 @@ textarea {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
   }
-
+  .header__socials {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
   .header__burger {
-    -ms-grid-row: 1;
-    -ms-grid-column: 5;
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
   }
 
   .contacts__description > .contacts__desc-item:nth-child(1) {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
   }
-
   .contacts__desc-item:nth-child(2) {
     -ms-grid-row: 1;
     -ms-grid-column: 3;

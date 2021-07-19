@@ -1,8 +1,43 @@
 'use strict'
 const html = document.querySelector('html');
+const header = document.querySelector('.header');
+const headerRow_1 = document.querySelector('.header__row_1');
+const headerRow_2 = document.querySelector('.header__row_2')
 const menu = document.querySelector('.header__menu');
 const burger = document.querySelector('.header__burger');
+const desktopBreakpoint = 1000;
 
+
+
+
+
+// fixed header
+// фиксим проваливание блока идущего после fixed header
+function fixHeaderHeight() {
+    header.nextElementSibling.style.paddingTop = `${header.offsetHeight}px`;
+}
+
+// при загрузке пересчитываем высоту header
+window.addEventListener('load', fixHeaderHeight);
+
+// при ресайзе пересчитываем высоту header
+window.addEventListener('resize', fixHeaderHeight);
+
+/**
+ * when you scrolling page down - first part of header go to up
+ * when you scrolling page up - first part of header come back down
+ */
+let prevScrollPosition = window.pageYOffset;
+window.addEventListener('scroll', () => {
+    let heightOfFirstPart = window.innerWidth > desktopBreakpoint ? headerRow_1.offsetHeight : document.querySelector('.header').offsetHeight;
+    const currentScrollPosition = window.pageYOffset;
+    if (prevScrollPosition > currentScrollPosition) {
+        header.style.top = "0";
+    } else {
+        header.style.top = `-${heightOfFirstPart}px`;
+    }
+    prevScrollPosition = currentScrollPosition;
+});
 
 
 
@@ -30,54 +65,19 @@ window.addEventListener('resize', calcEmptySpace);
 // burger button
 burger.addEventListener('click', () => {
     burger.classList.toggle('open');
+    headerRow_2.classList.toggle('open');
     menu.classList.toggle('open');
-    html.classList.toggle('scroll-off');
+    fixHeaderHeight();
 });
 
 // disable opened mobile menu on desktop
-const desktopBreakpoint = 1000;
 window.addEventListener('resize', () => {
     if (window.innerWidth > desktopBreakpoint) {
         burger.classList.remove('open');
+        headerRow_2.classList.remove('open');
         menu.classList.remove('open');
-        html.classList.remove('scroll-off');
+        fixHeaderHeight();
     }
-});
-
-
-
-
-
-// fixed header
-const header = document.querySelector('.header');
-const headerRow_1 = document.querySelector('.header__row_1');
-const headerRow_2 = document.querySelector('.header__row_2');
-
-// фиксим проваливание блока идущего после fixed header
-function fixHeaderHeight() {
-    header.nextElementSibling.style.paddingTop = `${header.clientHeight}px`;
-}
-
-// при загрузке пересчитываем высоту header
-window.addEventListener('load', fixHeaderHeight);
-
-// при ресайзе пересчитываем высоту header
-window.addEventListener('resize', fixHeaderHeight);
-
-/**
- * when you scrolling page down - first part of header go to up
- * when you scrolling page up - first part of header come back down
- */
-let prevScrollPosition = window.pageYOffset;
-const heightOfFirstPart = headerRow_1.offsetHeight
-window.addEventListener('scroll', () => {
-    const currentScrollPosition = window.pageYOffset;
-    if (prevScrollPosition > currentScrollPosition) {
-        header.style.top = "0";
-    } else {
-        header.style.top = `-${heightOfFirstPart}px`;
-    }
-    prevScrollPosition = currentScrollPosition;
 });
 
 
