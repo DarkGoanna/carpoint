@@ -402,7 +402,7 @@ textarea {
   justify-content: center;
   color: #fff;
   background: rgba(0,0,0,0.7);
-  border-radius: 8px;
+  border-radius: 4px;
   margin-left: 10%;
 }
 
@@ -1414,6 +1414,12 @@ textarea {
 
 .pagination__item:not(:last-child) {
   margin-right: 5px;
+}
+
+@media screen and (min-width: 1450px) {
+  .banner__description {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 1200px) {

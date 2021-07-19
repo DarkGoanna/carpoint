@@ -14,7 +14,7 @@
     justify-content: center
     color: $light
     background: rgba($dark, 0.7)
-    border-radius: 8px
+    border-radius: 4px
     margin-left: 10%
   &__text
     margin-top: 30px
@@ -50,6 +50,10 @@
     left: 30px
     &::after
       transform: rotate(180deg)
+@media screen and ( min-width: 1450px )
+  .banner
+    &__description
+      margin-left: 0
 @media screen and ( max-width: 1000px )
   .banner
     & .swiper-button-next,
