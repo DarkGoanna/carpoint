@@ -3,13 +3,13 @@
   &__inner
     display: grid
     grid-template-columns: repeat(4, 1fr)
-    gap: 50px
+    gap: 30px
   &__card
     display: flex
     align-items: center
     justify-content: center
     transition: .2s
-    padding: 30px 20px
+    padding: 20px
     cursor: pointer
     position: relative
     overflow: hidden
@@ -103,21 +103,25 @@
     &__inner
       gap: 30px
     &__card
-      padding: 30px 15px
+      padding: 20px 15px
 @media screen and ( max-width: 1000px )
   .steps
+    &__card
+      padding: 15px
     &__inner
       grid-template-columns: repeat(2, 1fr)
-      gap: 50px
+      gap: 30px
     &__popup
       & .popup
         &__inner
           max-width: 90%
 @media screen and ( max-width: 580px )
   .steps
+    &__card
+      padding: 10px
     &__inner
       grid-template-columns: 100%
-      gap: 30px
+      gap: 20px
     &__card
       max-width: 100%
       width: 100%

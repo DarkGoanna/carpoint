@@ -346,7 +346,7 @@ document.querySelectorAll('.add-video-card').forEach(container => {
             card = `<div class="swiper-slide">
                         <div class="video-card" data-videoID="${item.id}">
                             <div class="video-card__image">
-                                <a href="https://www.youtube.com/embed/${item.id}" data-fancybox>
+                                <a href="https://www.youtube.com/embed/${item.id}" data-fancybox="${playlistID}">
                                     <img src="${item.thumbnails}" alt="${item.title}">
                                 </a>
                             </div>
@@ -363,7 +363,10 @@ document.querySelectorAll('.add-video-card').forEach(container => {
                 loop: true,
                 spaceBetween: 30,
                 slidesPerView: 3,
-
+                pagination: {
+                    el: '.reviews-youtube__slider .swiper-pagination',
+                    clickable: true,
+                },
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
@@ -404,3 +407,69 @@ document.querySelectorAll('.add-video-card').forEach(container => {
 //     player.setAttribute('data-src', src);
 //     player.style.backgroundImage = `url(${imgURL})`;
 // }
+
+
+
+
+// const sliderInSidebar = document.querySelector('.sidebar__slider');
+// const breakpoint = window.matchMedia( '(max-width:580px)' );
+// let slider;
+
+// function enableSlider() {
+//     slider = new Swiper(sliderInSidebar, {
+//         loop: true,
+//         slidesPerView: 1,
+//     });
+// }
+
+// function sidebarSlider () {
+//     if (sliderInSidebar) {
+
+//         if (breakpoint.matches === false) {
+//             if ( slider !== undefined ) {
+//                 slider.destroy(true, true);
+//             }
+//         } else if (breakpoint.matches === true) {
+//             enableSlider();
+//         }
+//     }
+// }
+
+// window.addEventListener('load', sidebarSlider);
+// window.addEventListener('resize', sidebarSlider);
+
+
+/* Swiper
+**************************************************************/
+let swiper = Swiper;
+let init = false;
+
+function swiperMode() {
+    const mobile = window.matchMedia('(min-width: 0px) and (max-width: 580px)');
+    const sliderInSidebar = document.querySelector('.sidebar__slider');
+
+    if (sliderInSidebar) {
+        // Enable (for mobile)
+        if(mobile.matches) {
+            if (!init) {
+                init = true;
+                swiper = new Swiper( sliderInSidebar, {
+                    slidesPerView: 1,
+                    loop: true,
+                    autoHeight: true,
+                    pagination: {
+                        el: '.sidebar__slider .swiper-pagination',
+                        clickable: true,
+                    },
+                });
+            }
+        }
+        else {
+            swiper.destroy();
+            init = false;
+        }
+    }
+}
+
+window.addEventListener('load', swiperMode);
+window.addEventListener('resize', swiperMode);

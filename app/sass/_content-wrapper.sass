@@ -4,13 +4,11 @@
         display: none
     & .content
         & .simple-block
-            &__player-wrapper
-                position: relative
-                max-width: 854px
-                min-height: 480px
-                margin: 30px 0 0
+            &__video
                 & iframe
                     min-height: 480px
+            &__title
+                margin-top: 30px
             &__text
                 margin-top: 30px
             &__btn-wrapper
@@ -18,7 +16,8 @@
                 align-items: center
                 margin-top: 15px
             &__btn
-                max-width: 300px
+                max-width: 50%
+                height: 65px
                 &:not(:last-child)
                     margin-right: 20px
             &__description
@@ -31,30 +30,38 @@
                             margin-bottom: 15px
                         & strong
                             margin-bottom: 5px
+        &__steps
+            display: none
     &.width-sidebar
         & section > .container
             padding: 0
         & > .container
             display: grid
-            grid-template-columns: minmax(250px, 1fr) 3fr
-            gap: 30px
-
+            grid-template-columns: 1fr 3fr
+            gap: 15px
         & .sidebar
             display: block
             grid-column: 1/2
             grid-row: 1
+            &__title
+                display: none
             &__btn
                 max-width: 100%
                 margin-top: 20px
             &__inner
-                margin-top: 20px
-            & .video-card
+                display: grid
+                grid-template-columns: 100%
+                margin-top: 5px
+            & .swiper-slide
+                & .video-card
+                    width: calc(100% - 30px)
+                    margin-left: 7px
                 &:not(:first-child)
-                    margin-top: 20px
+                    margin: 20px auto 0
         & .content
             grid-column: 2/-1
         & .callback
-            border-radius: 15px
+            border-radius: 4px
 @media screen and ( max-width: 1000px )
     .content-wrapper
         &.width-sidebar
@@ -63,22 +70,30 @@
             & .sidebar
                 grid-column: 1/-1
                 grid-row: 2
-                // display: flex
-                // flex-direction: column-reverse
+                &__title
+                    display: block
+                    margin-bottom: 30px
                 &__inner
                     display: grid
                     grid-template-columns: 1fr 1fr
-                    gap: 50px
-                    // margin-top: 0
+                    gap: 30px
                 &__btn
                     margin: 30px auto 0
                     max-width: 200px
-                & .video-card
+                & .swiper-slide
+                    & .video-card
+                        margin: auto
                     &:not(:first-child)
                         margin-top: 0
             & .content
                 grid-column: 1/-1
                 & .simple-block
+                    & > .container
+                        display: flex
+                        flex-direction: column
+                    &__title
+                        order: -1
+                        margin-top: 0
                     &__btn-wrapper
                         // flex-direction: column
                         justify-content: center
@@ -86,8 +101,8 @@
                         &:not(:last-child)
                             margin-right: 15px
                             margin-bottom: 0
-                    &__player-wrapper
-                        margin: 30px auto 0
+                    &__video
+                        margin-top: 30px
 @media screen and ( max-width: 768px )
     .content-wrapper
         &.width-sidebar
@@ -99,22 +114,42 @@
                         &:not(:last-child)
                             margin-right: 0
                             margin-bottom: 10px
-                    &__player-wrapper
-                        max-width: 640px
-                        min-height: 360px
+                    &__video
                         & iframe
                             min-height: 360px
+            & .sidebar
+                &__inner
+                    gap: 30px 10px
 @media screen and ( max-width: 580px )
     .content-wrapper
         &.width-sidebar
             & .sidebar
+                &__slider
+                    padding-bottom: 25px
+                    & .swiper-pagination
+                        bottom: 0
+                        &-bullet
+                            background: $light
+                            border: 1px solid $main
+                            opacity: 1
+                            &-active
+                                background: $main
                 &__inner
-                    grid-template-columns: 100%
+                    display: flex
+                    gap: 0
+                & .swiper-slide
+                    width: 100%
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    padding: 10px 0
+                    & .video-card
+                        width: 95%
             & .content
                 & .simple-block
-                    &__player-wrapper
-                        max-width: 426px
-                        min-height: 240px
+                    &__video
                         & iframe
                             min-height: 240px
                             height: 100% !important
+                &__steps
+                    display: block
