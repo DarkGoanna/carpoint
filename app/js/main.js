@@ -33,7 +33,7 @@ window.addEventListener('scroll', () => {
     const currentScrollPosition = window.pageYOffset;
     if (prevScrollPosition > currentScrollPosition) {
         header.style.top = "0";
-    } else {
+    } else if (currentScrollPosition > 400) {
         header.style.top = `-${heightOfFirstPart}px`;
     }
     prevScrollPosition = currentScrollPosition;
@@ -304,28 +304,6 @@ if (modelsSlider) {
 
 
 
-function getPlaylist(playlistID, quantityVideos = 10) {
-    const result = [];
-    const API = 'AIzaSyDWQ9VHKbmvicDUzePMB9pRT9RxotohyQ0';
-    const requestURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,id&order=date&key=${API}&playlistId=${playlistID}&maxResults=${quantityVideos}`;
-
-    fetch(requestURL)
-        .then(response => response.json())
-        .then((JSON) => {
-            return JSON.items.forEach(item => {
-                result.push({
-                    thumbnails: item.snippet.thumbnails.standard.url,
-                    date: item.snippet.publishedAt,
-                    title: item.snippet.title,
-                    description: item.snippet.description,
-                    id: item.snippet.resourceId.videoId,
-                });
-            })
-        })
-        .catch(error => console.log(error));
-    return result;
-}
-
 // get current playlist id
 // function parseURL(url) {
 //     let regexp =
@@ -338,110 +316,66 @@ function getPlaylist(playlistID, quantityVideos = 10) {
 document.querySelectorAll('.add-video-card').forEach(container => {
     const playlistID = container.getAttribute('data-playlistID');
     const quantity = +container.getAttribute('data-quantity');
-    let data = getPlaylist(playlistID, quantity);
     let card;
+    const API = 'AIzaSyDWQ9VHKbmvicDUzePMB9pRT9RxotohyQ0';
+    const requestURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,id&order=date&key=${API}&playlistId=${playlistID}&maxResults=${quantity}`;
 
-    setTimeout(() => {
-        data.forEach(item => {
-            card = `<div class="swiper-slide">
-                        <div class="video-card" data-videoID="${item.id}">
+    fetch(requestURL)
+        .then(response => response.json())
+        .then(JSON => {
+            return JSON.items.forEach(item => {
+                card = `<div class="swiper-slide">
+                        <div class="video-card" data-videoID="${item.snippet.resourceId.videoId}">
                             <div class="video-card__image">
-                                <a href="https://www.youtube.com/embed/${item.id}" data-fancybox="${playlistID}">
-                                    <img src="${item.thumbnails}" alt="${item.title}">
+                                <a href="https://www.youtube.com/embed/${item.snippet.resourceId.videoId}" data-fancybox="${playlistID}">
+                                    <img src="${item.snippet.thumbnails.standard.url}" alt="${item.snippet.title}">
                                 </a>
                             </div>
-                            <div class="video-card__title title-3">${item.title}</div>
+                            <div class="video-card__title title-3">${item.snippet.title}</div>
                         </div>
                     </div>`;
-            container.insertAdjacentHTML('beforeend', card);
+                container.insertAdjacentHTML('beforeend', card);
+            })
+        })
+        .catch(error => console.log(error));
+});
+
+// reviews slider
+const reviewsSlider = document.querySelector('.simple-slider__slider');
+if (reviewsSlider) {
+    setTimeout(() => {
+        new Swiper(reviewsSlider, {
+            loop: true,
+            spaceBetween: 30,
+            slidesPerView: 3,
+            pagination: {
+                el: '.simple-slider__slider .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                581: {
+                    slidesPerView: 2,
+                },
+                769: {
+                    slidesPerView: 3,
+                },
+                1000: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
         });
-
-        // reviews slider
-        const reviewsSlider = document.querySelector('.reviews-youtube__slider');
-        if (reviewsSlider) {
-            new Swiper('.reviews-youtube__slider', {
-                loop: true,
-                spaceBetween: 30,
-                slidesPerView: 3,
-                pagination: {
-                    el: '.reviews-youtube__slider .swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                    },
-                    581: {
-                        slidesPerView: 2,
-                    },
-                    769: {
-                        slidesPerView: 3,
-                    },
-                    1000: {
-                        slidesPerView: 2,
-                    },
-                    1200: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-        }
-    }, 500);
-})
-
-// // get video id
-// function youtubeParser(url){
-//     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-//     var match = url.match(regExp);
-//     return (match&&match[7].length==11)? match[7] : false;
-// }
-
-// // simple-block video
-// const simpleBlock = document.querySelector('.simple-block__player-wrapper');
-// if (simpleBlock) {
-//     const player = simpleBlock.querySelector('.player');
-//     const videoID = youtubeParser( player.getAttribute('data-url'));
-//     const imgURL = `https://i.ytimg.com/vi/${videoID}/hqdefault.jpg`;
-//     const src = `https://www.youtube.com/embed/${videoID}`;
-
-//     player.setAttribute('data-src', src);
-//     player.style.backgroundImage = `url(${imgURL})`;
-// }
-
-
-
-
-// const sliderInSidebar = document.querySelector('.sidebar__slider');
-// const breakpoint = window.matchMedia( '(max-width:580px)' );
-// let slider;
-
-// function enableSlider() {
-//     slider = new Swiper(sliderInSidebar, {
-//         loop: true,
-//         slidesPerView: 1,
-//     });
-// }
-
-// function sidebarSlider () {
-//     if (sliderInSidebar) {
-
-//         if (breakpoint.matches === false) {
-//             if ( slider !== undefined ) {
-//                 slider.destroy(true, true);
-//             }
-//         } else if (breakpoint.matches === true) {
-//             enableSlider();
-//         }
-//     }
-// }
-
-// window.addEventListener('load', sidebarSlider);
-// window.addEventListener('resize', sidebarSlider);
-
+    }, 500)
+}
 
 /* Swiper
 **************************************************************/
-let swiper = Swiper;
+let swiper;
 let init = false;
 
 function swiperMode() {
@@ -450,10 +384,10 @@ function swiperMode() {
 
     if (sliderInSidebar) {
         // Enable (for mobile)
-        if(mobile.matches) {
+        if (mobile.matches) {
             if (!init) {
                 init = true;
-                swiper = new Swiper( sliderInSidebar, {
+                swiper = new Swiper(sliderInSidebar, {
                     slidesPerView: 1,
                     loop: true,
                     autoHeight: true,
@@ -465,7 +399,9 @@ function swiperMode() {
             }
         }
         else {
-            swiper.destroy();
+            if (swiper !== undefined) {
+                swiper.destroy();
+            }
             init = false;
         }
     }

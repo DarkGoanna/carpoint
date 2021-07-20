@@ -639,11 +639,11 @@
                         </div>
                     </section>
 
-                    <section class="reviews-youtube">
+                    <section class="simple-slider">
                         <div class="container">
-                            <div class="reviews-youtube__title title-2">Все видео отзывы</div>
-                            <div class="reviews-youtube__slider swiper-container">
-                                <div class="swiper-wrapper reviews-youtube__slider-inner add-video-card"
+                            <a href="#" class="simple-slider__title title-2">Все видео отзывы</a>
+                            <div class="simple-slider__slider swiper-container">
+                                <div class="swiper-wrapper simple-slider__slider-inner add-video-card"
                                     data-playlistID="PLsCRwzPAM16L3S8ekedw7RxC0lnbYXlAd" data-quantity="4">
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -665,220 +665,277 @@
                                 </div>
                                 <div class="price__card-inner">
                                     <div id="tab-1" class="price-card">
-                                        <div class="price-card__subtitle title-2">АВТОПОДБОР КИЕВ</div>
-                                        <ul class="price-card__table">
-                                            <li>
-                                                <span>Экспертная услуга "Перепроверь своего автоподборщика"</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Разовая диагностика авто перед покупкой (в зависимости от авто.
-                                                    Производим проверку по Одессе и Киеву.)</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Проверка электромобиля, авто с гибридным двигателем и некоторые
-                                                    дорогие марки авто, перед покупкой</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Консультирование по телефону</span>
-                                                <span>100$</span>
-                                            </li>
-                                        </ul>
-                                        <ul class="list items-color-2">
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                        </ul>
+                                      <div class="price-card__subtitle title-2">АВТОПОДБОР КИЕВ</div>
+                                      <ul class="price-card__table">
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Экспертная услуга "Перепроверь своего автоподборщика"</summary>
+                                            <div class="acordion__content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio ab, rem reprehenderit corrupti incidunt similique animi? Dolorem illum nostrum iure magnam, excepturi non quos provident.</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Разовая диагностика авто перед покупкой (в зависимости от авто.
+                                              Производим проверку по Одессе и Киеву.)</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Проверка электромобиля, авто с гибридным двигателем и некоторые
+                                              дорогие марки авто, перед покупкой</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Консультирование по телефону</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                      </ul>
+                                      <ul class="list items-color-2">
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                      </ul>
+                                      <div class="price-card__btn-wrapper">
                                         <button class="price-card__btn btn call-popup" data-popupName="simple-form"
-                                            type="button">Заказать</button>
+                                        type="button">Заказать</button>
+                                        <a href="tel:063 746 00 77" class="price-card__btn btn">
+                                            <div class="price-card__btn-icon">
+                                                <img src="img/phone-dark.svg" alt="">
+                                                <img src="img/phone-white.svg" alt="">
+                                            </div>
+                                            <span>063 746 00 77</span>
+                                        </a>
+                                      </div>
                                     </div>
                                     <div id="tab-2" class="price-card">
-                                        <div class="price-card__subtitle title-2">АВТОПОДБОР ОДЕССА</div>
-                                        <ul class="price-card__table">
-                                            <li>
-                                                <span>Экспертная услуга "Перепроверь своего автоподборщика"</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Разовая диагностика авто перед покупкой (в зависимости от авто.
-                                                    Производим проверку по Одессе и Киеву.)</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Проверка электромобиля, авто с гибридным двигателем и некоторые
-                                                    дорогие марки авто, перед покупкой</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Консультирование по телефону</span>
-                                                <span>100$</span>
-                                            </li>
-                                        </ul>
-                                        <ul class="list items-color-2">
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <button class="price-card__btn btn call-popup" data-popupName="simple-form"
-                                            type="button">Заказать</button>
+                                      <div class="price-card__subtitle title-2">АВТОПОДБОР ОДЕССА</div>
+                                      <ul class="price-card__table">
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Экспертная услуга "Перепроверь своего автоподборщика"</summary>
+                                            <div class="acordion__content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio ab, rem reprehenderit corrupti incidunt similique animi? Dolorem illum nostrum iure magnam, excepturi non quos provident.</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Разовая диагностика авто перед покупкой (в зависимости от авто.
+                                              Производим проверку по Одессе и Киеву.)</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Проверка электромобиля, авто с гибридным двигателем и некоторые
+                                              дорогие марки авто, перед покупкой</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Консультирование по телефону</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                      </ul>
+                                      <ul class="list items-color-2">
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                      </ul>
+                                      <button class="price-card__btn btn call-popup" data-popupName="simple-form"
+                                        type="button">Заказать</button>
                                     </div>
                                     <div id="tab-3" class="price-card">
-                                        <div class="price-card__subtitle title-2">КОНСУЛЬТАЦИЯ АВТОЭКСПЕРТА</div>
-                                        <ul class="price-card__table">
-                                            <li>
-                                                <span>Экспертная услуга "Перепроверь своего автоподборщика"</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Разовая диагностика авто перед покупкой (в зависимости от авто.
-                                                    Производим проверку по Одессе и Киеву.)</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Проверка электромобиля, авто с гибридным двигателем и некоторые
-                                                    дорогие марки авто, перед покупкой</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Консультирование по телефону</span>
-                                                <span>100$</span>
-                                            </li>
-                                        </ul>
-                                        <ul class="list items-color-2">
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <button class="price-card__btn btn call-popup" data-popupName="simple-form"
-                                            type="button">Заказать</button>
+                                      <div class="price-card__subtitle title-2">КОНСУЛЬТАЦИЯ АВТОЭКСПЕРТА</div>
+                                      <ul class="price-card__table">
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Экспертная услуга "Перепроверь своего автоподборщика"</summary>
+                                            <div class="acordion__content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio ab, rem reprehenderit corrupti incidunt similique animi? Dolorem illum nostrum iure magnam, excepturi non quos provident.</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Разовая диагностика авто перед покупкой (в зависимости от авто.
+                                              Производим проверку по Одессе и Киеву.)</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Проверка электромобиля, авто с гибридным двигателем и некоторые
+                                              дорогие марки авто, перед покупкой</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Консультирование по телефону</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                      </ul>
+                                      <ul class="list items-color-2">
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                      </ul>
+                                      <button class="price-card__btn btn call-popup" data-popupName="simple-form"
+                                        type="button">Заказать</button>
                                     </div>
                                     <div id="tab-4" class="price-card">
-                                        <div class="price-card__subtitle title-2">ПОМОЩЬ В ПРОДАЖЕ АВТО</div>
-                                        <ul class="price-card__table">
-                                            <li>
-                                                <span>Экспертная услуга "Перепроверь своего автоподборщика"</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Разовая диагностика авто перед покупкой (в зависимости от авто.
-                                                    Производим проверку по Одессе и Киеву.)</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Проверка электромобиля, авто с гибридным двигателем и некоторые
-                                                    дорогие марки авто, перед покупкой</span>
-                                                <span>100$</span>
-                                            </li>
-                                            <li>
-                                                <span>Консультирование по телефону</span>
-                                                <span>100$</span>
-                                            </li>
-                                        </ul>
-                                        <ul class="list items-color-2">
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <strong>Lorem ipsum dolor sit amet.</strong>
-                                                <span>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-                                                    fugit
-                                                    ab
-                                                    blanditiis!
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <button class="price-card__btn btn call-popup" data-popupName="simple-form"
-                                            type="button">Заказать</button>
+                                      <div class="price-card__subtitle title-2">ПОМОЩЬ В ПРОДАЖЕ АВТО</div>
+                                      <ul class="price-card__table">
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Экспертная услуга "Перепроверь своего автоподборщика"</summary>
+                                            <div class="acordion__content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio ab, rem reprehenderit corrupti incidunt similique animi? Dolorem illum nostrum iure magnam, excepturi non quos provident.</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Разовая диагностика авто перед покупкой (в зависимости от авто.
+                                              Производим проверку по Одессе и Киеву.)</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Проверка электромобиля, авто с гибридным двигателем и некоторые
+                                              дорогие марки авто, перед покупкой</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                        <li>
+                                          <details class="acordion">
+                                            <summary class="acordion__title">Консультирование по телефону</summary>
+                                            <div class="acordion__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate?</div>
+                                          </details>
+                                          <span class="price-card__price">100$</span>
+                                        </li>
+                                      </ul>
+                                      <ul class="list items-color-2">
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                        <li>
+                                          <strong>Lorem ipsum dolor sit amet.</strong>
+                                          <span>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+                                            fugit
+                                            ab
+                                            blanditiis!
+                                          </span>
+                                        </li>
+                                      </ul>
+                                      <button class="price-card__btn btn call-popup" data-popupName="simple-form"
+                                        type="button">Заказать</button>
                                     </div>
                                 </div>
                             </div>
@@ -1088,6 +1145,7 @@
                             <li><a href="#">Срочный автовыкуп</a></li>
                             <li><a href="#">Цены</a></li>
                             <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Блог</a></li>
                         </ul>
                     </nav>
                 </div>

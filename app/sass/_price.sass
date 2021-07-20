@@ -70,6 +70,7 @@
       & .acordion
         text-align: left
         padding: 10px
+
   &__price
     text-align: center
     font-weight: 700
@@ -84,8 +85,41 @@
         margin-bottom: 15px
         & strong
           margin-bottom: 5px
+  &__btn-wrapper
+    margin-top: 30px
+    display: flex
+    align-items: center
+    justify-content: center
   &__btn
-    margin: 30px auto 0
+    max-width: 50%
+    &:not(:last-child)
+      margin-right: 30px
+    &-icon
+      position: relative
+      margin-right: 5px
+      width: 25px
+      height: 25px
+      & img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        &:last-child
+          opacity: 0
+          visibility: hidden
+          transition: .2s
+    &:hover
+      & .price-card__btn-icon
+        & img
+          &:first-child
+            opacity: 0
+            visibility: hidden
+            transition: .2s
+          &:last-child
+            opacity: 1
+            visibility: visible
+            transition: .2s
 @media screen and ( max-width: 768px )
   .price
     &__tab-wrapper
@@ -106,6 +140,14 @@
         border-top-right-radius: 4px
       &:nth-child(2)
         border-radius: 0
+  .price-card
+    &__btn-wrapper
+      flex-direction: column
+    &__btn
+      max-width: 100%
+      &:not(:last-child)
+        margin-right: 0
+        margin-bottom: 15px
 @media screen and ( max-width: 480px )
   .price
     &-card__table

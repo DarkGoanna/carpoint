@@ -3,3 +3,38 @@
         cursor: pointer
     &__content
         height: 100%
+        margin-top: 10px
+        animation: sweep .75s ease-in
+    &__title
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+        font-weight: 700
+        &::-webkit-details-marker
+            display: none
+            content: ''
+        &::marker
+            display: none
+            content: ''
+        &::after
+            content: ''
+            padding-top: 10px
+            padding-left: 10px
+            border-right: 2px solid $dark
+            border-bottom: 2px solid $dark
+            transform-origin: center
+            transform: rotate(45deg) translateY(0)
+            transition: .2s
+    &[open]
+        & .acordion__title
+            &::after
+                transform: rotate(-135deg) translateY(-10px)
+                margin-right: -7px
+                transition: .2s
+@keyframes sweep
+    0%
+        max-height: 0
+        opacity: 0
+    100%
+        max-height: 1000px
+        opacity: 1
