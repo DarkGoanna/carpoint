@@ -74,10 +74,9 @@
     margin-top: 10px
     transition: .2s
   &__popup
+    max-height: 80vh
+    max-width: 900px
     & .popup
-      &__inner
-        max-height: 80vh
-        max-width: 900px
       &__steps-list
         height: 100%
         max-height: calc(80vh - 100px)
@@ -111,10 +110,6 @@
     &__inner
       grid-template-columns: repeat(2, 1fr)
       gap: 30px
-    &__popup
-      & .popup
-        &__inner
-          max-width: 90%
 @media screen and ( max-width: 580px )
   .steps
     &__card
@@ -128,7 +123,6 @@
       margin: auto
     &__popup
       & .popup
-        &__inner
         &__steps-list
           margin-top: 15px
           & li

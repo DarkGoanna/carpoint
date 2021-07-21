@@ -110,25 +110,6 @@ if (banner) {
 
 
 
-// section steps
-const stepsCards = document.querySelectorAll('.steps__card');
-if (stepsCards.length) {
-    stepsCards.forEach(card => {
-        card.addEventListener('click', () => {
-            stepsCards.forEach(sibling => {
-                sibling.querySelector('.steps__popup').classList.remove('open');
-            });
-            card.querySelector('.steps__popup').classList.add('open');
-            html.classList.add('scroll-off');
-        });
-    });
-}
-
-
-
-
-
-
 // popup
 const popups = document.querySelectorAll('.popup');
 if (popups.length) {
@@ -166,14 +147,6 @@ if (popups.length) {
 
 
 // youtube videos
-function initVideos() {
-    for (let e = $('iframe'), t = 0; t < e.length; t++) {
-        if (-1 === e[t].src.indexOf("enablejsapi")) {
-            var n = -1 === e[t].src.indexOf("?") ? "?" : "&amp;";
-            e[t].src += n + "enablejsapi=true"
-        }
-    }
-}
 function enableVideo(selector) {
     const video = document.querySelector(selector);
     if (video) {
@@ -183,7 +156,7 @@ function enableVideo(selector) {
                 player.classList.remove('pause');
                 const iframe = player.nextElementSibling;
                 iframe.setAttribute('src', player.getAttribute('data-src'));
-                initVideos();
+                // initVideos();
                 iframe.addEventListener('load', () => {
                     iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', "*");
                 })
@@ -423,6 +396,7 @@ function swiperMode() {
                 swiper = new Swiper(sliderInSidebar, {
                     slidesPerView: 1,
                     loop: true,
+                    spaceBetween: 15,
                     autoHeight: true,
                     pagination: {
                         el: '.sidebar__slider .swiper-pagination',
