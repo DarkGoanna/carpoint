@@ -1,0 +1,240 @@
+.report
+    & picture
+        & img,
+        & source
+            width: 100%
+            object-fit: cover
+    &__title
+        padding: 20px
+        background: $main
+        color: $light
+        border-left: 1px solid $main
+        border-right: 1px solid $main
+        &:not(:first-child)
+            margin-top: 30px
+    &__table
+        font-size: 14px
+        &-row
+            display: grid
+        &-col
+            padding: 10px 5px
+            display: flex
+            align-items: center
+            justify-content: center
+            &:first-child
+                justify-content: flex-start
+        &_col-2
+            & .report__table-row
+                grid-template-columns: repeat(2, 1fr)
+        &_col-3
+            border: 1px solid $dark
+            & .report__table
+                &-row
+                    grid-template-columns: 2fr repeat(2, 120px)
+                    &:first-child
+                        font-weight: 700
+                        text-align: center
+                    &:not(:last-child)
+                        border-bottom: 1px solid $dark
+                &-col
+                    &:not(:last-child)
+                        border-right: 1px solid $dark
+        &_col-4
+            border: 1px solid $dark
+            & .report__table
+                &-row
+                    grid-template-columns: 2fr repeat(3, 120px)
+                    &:first-child
+                        font-weight: 700
+                        text-align: center
+                    &:not(:last-child)
+                        border-bottom: 1px solid $dark
+                &-col
+                    &:not(:last-child)
+                        border-right: 1px solid $dark
+        &_col-5
+
+            & .report__table
+                &-row
+                    grid-template-columns: 1fr repeat(5, 120px)
+                    &:first-child
+                        font-weight: 700
+                        text-align: center
+                        border-bottom: 1px solid $dark
+        &-inner
+            display: grid
+            grid-template-columns: 1fr 2fr
+            column-gap: 50px
+            margin-top: 30px
+        &-description
+            & ul
+                & li
+                    list-style: none
+                    padding: 10px 0
+                    border-bottom: 1px solid $dark
+                    &:first-child
+                        border-top: 1px solid $dark
+        &-info
+            margin-top: 30px
+            & p
+                &:not(:first-child)
+                    margin-top: 15px
+    &__row
+        &--title
+            grid-column: 1/-1
+            display: flex
+            align-items: center
+            gap: 5px
+            & img
+                width: 24px
+                height: 24px
+        &_1
+            display: grid
+            grid-template-columns: 1fr 1fr
+            gap: 15px 50px
+            margin-top: 30px
+            & .report__table-row
+                &:nth-child(n)
+                    border: none
+            & .report__table-col
+                &:nth-child(n)
+                    border: none
+                &:first-child
+                    font-weight: 400
+                &:last-child
+                    font-weight: 700
+        &_2
+            margin-top: 30px
+        &_3
+            margin-top: 30px
+        &_4
+            & .report__table
+                border: 1px solid $dark
+                &-row
+                    grid-template-columns: 1fr 2fr
+                    &:not(:last-child)
+                        border-bottom: 1px solid $dark
+                &-col
+                    &:first-child
+                        border-right: 1px solid $dark
+    &__slider
+        padding: 30px 0
+        max-width: 900px
+        margin: auto
+        width: 100%
+        & .swiper
+            &-slide
+                & img,
+                & source
+                    width: 100%
+                    object-fit: cover
+            &-pagination
+                bottom: 0
+                &-bullet
+                    background: $light
+                    border: 1px solid $main
+                    opacity: 1
+                    &-active
+                        background: $main
+    &__checkbox
+        width: 24px
+        height: 24px
+        border: 1px solid $dark
+        &.checked
+            position: relative
+            &::before
+                content: ''
+                width: 100%
+                height: 100%
+                position: absolute
+                background-image: url(../img/defect.svg)
+                background-position: center
+                background-repeat: no-repeat
+                background-size: contain
+@media screen and ( max-width: 1200px )
+    .report
+        &__table
+            &_col-5
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(2, 80px) repeat(2, 120px) 80px
+        &__slider
+            max-width: calc(1000px - 30px - 250px)
+@media screen and ( max-width: 1000px )
+    .report
+        &__slider
+            max-width: 100%
+        &__table
+            &_col-5
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(2, 80px) repeat(2, 120px) 80px
+@media screen and ( max-width: 768px )
+    .report
+        &__title
+            padding: 15px
+        &__table
+            &-inner
+                grid-template-columns: 100%
+                gap: 30px
+            &_col-3,
+            &_col-4,
+            &_col-5
+                & .report__table
+                    &-row
+                        &:first-child
+                            & .report__table-col
+                                padding: 5px 3px
+                                &:not(:first-child)
+                                    writing-mode: tb-rl
+                                    transform: rotate(180deg)
+                                    border-left: 1px solid $dark
+                                    border-right: none
+                                &:last-child
+                                    border-left: none
+            &_col-3
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(2, .2fr)
+            &_col-4
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(3, .2fr)
+            &_col-5
+                border: 1px solid $dark
+                margin-bottom: 30px
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(5, .4fr)
+                        &:first-child
+                            & .report__table-col
+                                &:first-child
+                                    border-right: 1px solid $dark
+                                &:last-child
+                                    border-left: 1px solid $dark
+        &__row
+            &--title
+                margin-bottom: 15px
+            &_1
+                grid-template-columns: 100%
+                gap: 0
+@media screen and ( max-width: 480px )
+    .report
+        &__table
+            &_col-3
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(2, 35px)
+            &_col-4
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(3, 35px)
+            &_col-5
+                & .report__table
+                    &-row
+                        grid-template-columns: 1fr repeat(5, 35px)
+        &__table-col
+            padding: 3px
+        &__checkbox
+            width: 15px
+            height: 15px

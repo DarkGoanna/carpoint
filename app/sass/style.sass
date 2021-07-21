@@ -8,6 +8,8 @@
   line-height: 1.2
 html
   overflow-x: hidden
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
 body
   font-family: 'Montserrat', sans-serif
   font-weight: 400
@@ -15,6 +17,8 @@ body
   background-color: $light
   color: $dark
   overflow-x: hidden
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
   &::-webkit-scrollbar
     width: 5px
     background: $light
@@ -54,6 +58,8 @@ input, textarea
 @import 'pagination'
 @import 'acordion'
 @import 'blog'
+@import 'report'
+@import 'tabs'
 
 @media screen and ( max-width: 580px )
   body

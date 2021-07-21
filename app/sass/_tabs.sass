@@ -1,0 +1,78 @@
+.tabs
+    margin-top: 30px
+    display: grid
+    border-radius: 4px
+    -webkit-box-shadow: 0px 0px 17px -2px rgba($dark, 0.4)
+    -moz-box-shadow: 0px 0px 17px -2px rgba($dark, 0.4)
+    box-shadow: 0px 0px 17px -2px rgba($dark, 0.4)
+    &__tab-wrapper
+        border-top-left-radius: 4px
+        border-top-right-radius: 4px
+        overflow: hidden
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr))
+        gap: 1px
+    &__tab
+        display: flex
+        align-items: center
+        justify-content: center
+        text-align: center
+        padding: 15px
+        color: $light
+        background: $main
+        transition: .2s
+        border: none
+        cursor: pointer
+        font-weight: 400
+        font-size: 18px
+        &:first-child
+            border-top-left-radius: 4px
+        &:last-child
+            border-top-right-radius: 4px
+        &.active
+            background: $second
+            color: $dark
+    &__content-wrapper
+        position: relative
+    &__content
+        padding: 30px 20px
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: max-content
+        opacity: 0
+        visibility: hidden
+        transition: .2s
+        border-bottom-left-radius: 4px
+        border-bottom-right-radius: 4px
+        &.active
+            opacity: 1
+            visibility: visible
+            transition: .2s
+            position: relative
+
+@media screen and ( max-width: 768px )
+    .tabs
+        &__tab-wrapper
+            grid-template-columns: 1fr 1fr
+        &__tab
+            font-size: 16px
+            &:nth-child(2)
+                border-top-right-radius: 4px
+            &:last-child
+                border-radius: 0
+@media screen and ( max-width: 580px )
+    .tabs
+        &__tab-wrapper
+            grid-template-columns: 100%
+        &__tab
+            padding: 10px
+            &:first-child
+                border-top-right-radius: 4px
+            &:nth-child(2)
+                border-radius: 0
+@media screen and ( max-width: 480px )
+    .tabs
+        &__content
+            padding: 20px 10px
