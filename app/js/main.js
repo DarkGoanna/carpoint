@@ -296,15 +296,16 @@ if (modelsSlider) {
 
 
 // get current playlist id
-// function parseURL(url) {
-//     let regexp =
-//       /https:\/\/www\.youtube\.com\/(?:watch\?v=(?:Ljb_qVG8UUU&list=PLCiVjAiT9q1IK40Gvkfnqa8GR2Fjzzy8v|hcI0FfW0MXU&list=RDhcI0FfW0MXU&start_radio=1)|playlist\?list=(PLCiVjAiT9q1I\-fFJAvcAlGDRavcflMiDJ))/
-//     let match = url.match(regexp);
-//     return match[1];
-//   }
+function parseVideo(url) {
+    var myregexp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
+    let match = url.match(myregexp);
+    return match[1];
+}
 
-
-
+function parsePlaylist(url) {
+    var reg = new RegExp("[&?]list=([a-z0-9_]+)", "i");
+    return reg.exec(url)[1];
+}
 
 
 

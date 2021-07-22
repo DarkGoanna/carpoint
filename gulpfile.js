@@ -7,8 +7,10 @@ const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const imagemin = require('gulp-imagemin');
+const webp = require('imagemin-webp');
 const del = require('del');
 const gcmq = require('gulp-group-css-media-queries');
+const rename = require('gulp-rename');
 
 function browsersync() {
     browserSync.init({
@@ -55,6 +57,12 @@ function images() {
         ]))
         .pipe(dest('dist/img'))
 }
+function webpConvert() {
+    return src('app/img/**/*')
+        .pipe(imagemin([webp({ quality: 75, }),]))
+        .pipe(rename({ extname: '.webp', }))
+        .pipe(dest('dist/img'))
+}
 function watching() {
     watch(['app/sass/**/*.sass'], styles);
     watch("app/*.html").on('change', browserSync.reload);
@@ -77,5 +85,5 @@ exports.scripts = scripts;
 exports.images = images;
 exports.cleanDist = cleanDist;
 
-exports.build = series(cleanDist, images, build);
+exports.build = series(cleanDist, webpConvert, images, build);
 exports.default = parallel(scripts, styles, watching, browsersync);
