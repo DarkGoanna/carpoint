@@ -48,14 +48,17 @@
   &__information
     margin-top: 30px
     display: flex
+    flex-direction: column
     align-items: center
     justify-content: space-between
     font-size: 14px
+    padding-top: 15px
+    border-top: 1px solid $light
   &__menu
     & ul
       display: grid
       grid-template-columns: 1fr 1fr
-      column-gap: 15px
+      column-gap: 36px
 @media screen and ( max-width: 1200px)
   .footer
     &__inner
@@ -74,3 +77,4 @@
     &__information
       flex-direction: column
       align-items: start
+      padding-left: 15px

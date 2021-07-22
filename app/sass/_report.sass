@@ -12,6 +12,8 @@
         border-right: 1px solid $main
         &:not(:first-child)
             margin-top: 30px
+    &__list
+        margin-top: 30px
     &__table
         font-size: 14px
         &-row
@@ -34,6 +36,9 @@
                     &:first-child
                         font-weight: 700
                         text-align: center
+                        & .report__table-col
+                            &:first-child
+                                color: transparent
                     &:not(:last-child)
                         border-bottom: 1px solid $dark
                 &-col
@@ -47,6 +52,9 @@
                     &:first-child
                         font-weight: 700
                         text-align: center
+                        & .report__table-col
+                            &:first-child
+                                color: transparent
                     &:not(:last-child)
                         border-bottom: 1px solid $dark
                 &-col
@@ -173,6 +181,10 @@
     .report
         &__title
             padding: 15px
+            &.hideOnMobile
+                font-size: 0
+                color: transparent
+                padding: 8px
         &__table
             &-inner
                 grid-template-columns: 100%
@@ -184,7 +196,7 @@
                     &-row
                         &:first-child
                             & .report__table-col
-                                padding: 5px 3px
+                                padding: 5px
                                 &:not(:first-child)
                                     writing-mode: tb-rl
                                     transform: rotate(180deg)
@@ -196,10 +208,18 @@
                 & .report__table
                     &-row
                         grid-template-columns: 1fr repeat(2, .2fr)
+                        &:first-child
+                            & .report__table-col
+                                &:first-child
+                                    color: $dark
             &_col-4
                 & .report__table
                     &-row
                         grid-template-columns: 1fr repeat(3, .2fr)
+                        &:first-child
+                            & .report__table-col
+                                &:first-child
+                                    color: $dark
             &_col-5
                 border: 1px solid $dark
                 margin-bottom: 30px
@@ -210,8 +230,8 @@
                             & .report__table-col
                                 &:first-child
                                     border-right: 1px solid $dark
-                                &:last-child
-                                    border-left: 1px solid $dark
+                                // &:last-child
+                                //     border-left: 1px solid $dark
         &__row
             &--title
                 margin-bottom: 15px
