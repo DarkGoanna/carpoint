@@ -342,41 +342,64 @@ document.querySelectorAll('.add-video-card').forEach(container => {
 
 
 
-// reviews slider
-const reviewsSlider = document.querySelector('.simple-slider__slider');
-if (reviewsSlider) {
-    setTimeout(() => {
-        new Swiper(reviewsSlider, {
-            loop: true,
-            spaceBetween: 30,
-            slidesPerView: 3,
-            pagination: {
-                el: '.simple-slider__slider .swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
+//reviews slider
+function initReviewsSlider() {
+    const reviewsSlider = document.querySelector('.simple-slider__slider');
+    const container = reviewsSlider.querySelector('.add-slide');
+    const playlistID = container.getAttribute('data-playlistID');
+    const quantity = +container.getAttribute('data-quantity');
+    let card;
+    const API = 'AIzaSyDWQ9VHKbmvicDUzePMB9pRT9RxotohyQ0';
+    const requestURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,id&order=date&key=${API}&playlistId=${playlistID}&maxResults=${quantity}`;
+
+    fetch(requestURL)
+        .then(response => response.json())
+        .then(JSON => {
+            return JSON.items.forEach(item => {
+                card = `<div class="swiper-slide">
+                        <div class="video-card" data-videoID="${item.snippet.resourceId.videoId}">
+                            <div class="video-card__image">
+                                <a href="https://www.youtube.com/embed/${item.snippet.resourceId.videoId}" data-fancybox="${playlistID}">
+                                    <img src="${item.snippet.thumbnails.standard.url}" alt="${item.snippet.title}">
+                                </a>
+                            </div>
+                            <div class="video-card__title title-3">${item.snippet.title}</div>
+                        </div>
+                    </div>`;
+                container.insertAdjacentHTML('beforeend', card);
+            })
+        })
+        .then(init => {
+            return new Swiper(reviewsSlider, {
+                loop: true,
+                spaceBetween: 30,
+                slidesPerView: 3,
+                pagination: {
+                    el: '.simple-slider__slider .swiper-pagination',
+                    clickable: true,
                 },
-                581: {
-                    slidesPerView: 2,
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                    },
+                    581: {
+                        slidesPerView: 2,
+                    },
+                    769: {
+                        slidesPerView: 3,
+                    },
+                    1000: {
+                        slidesPerView: 2,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                    },
                 },
-                769: {
-                    slidesPerView: 3,
-                },
-                1000: {
-                    slidesPerView: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    }, 500)
+            });
+        })
+        .catch(error => console.log(error));
 }
-
-
-
+initReviewsSlider();
 
 
 
