@@ -1,1 +1,1 @@
-https://carpoint.com.ua/
+https://carpoint.com.ua
